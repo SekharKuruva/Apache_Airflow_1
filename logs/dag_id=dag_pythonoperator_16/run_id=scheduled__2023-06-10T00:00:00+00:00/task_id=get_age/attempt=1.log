@@ -1,0 +1,13 @@
+[2023-06-11T06:10:36.532+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pythonoperator_16.get_age scheduled__2023-06-10T00:00:00+00:00 [queued]>
+[2023-06-11T06:10:37.051+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pythonoperator_16.get_age scheduled__2023-06-10T00:00:00+00:00 [queued]>
+[2023-06-11T06:10:37.069+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T06:10:37.412+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): get_age> on 2023-06-10 00:00:00+00:00
+[2023-06-11T06:10:37.498+0000] {standard_task_runner.py:57} INFO - Started process 227 to run task
+[2023-06-11T06:10:37.549+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_pythonoperator_16', 'get_age', 'scheduled__2023-06-10T00:00:00+00:00', '--job-id', '593', '--raw', '--subdir', 'DAGS_FOLDER/python_operator_dag.py', '--cfg-path', '/tmp/tmpafyavtak']
+[2023-06-11T06:10:37.569+0000] {standard_task_runner.py:85} INFO - Job 593: Subtask get_age
+[2023-06-11T06:10:38.185+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_pythonoperator_16.get_age scheduled__2023-06-10T00:00:00+00:00 [running]> on host 69e374580eab
+[2023-06-11T06:10:41.967+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='dag_pythonoperator_16' AIRFLOW_CTX_TASK_ID='get_age' AIRFLOW_CTX_EXECUTION_DATE='2023-06-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-10T00:00:00+00:00'
+[2023-06-11T06:10:42.154+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-06-11T06:10:42.444+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=dag_pythonoperator_16, task_id=get_age, execution_date=20230610T000000, start_date=20230611T061036, end_date=20230611T061042
+[2023-06-11T06:10:43.115+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T06:10:43.401+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

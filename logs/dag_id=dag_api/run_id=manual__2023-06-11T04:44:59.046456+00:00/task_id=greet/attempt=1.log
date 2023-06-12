@@ -1,0 +1,14 @@
+[2023-06-11T04:45:50.492+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_api.greet manual__2023-06-11T04:44:59.046456+00:00 [queued]>
+[2023-06-11T04:45:50.848+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_api.greet manual__2023-06-11T04:44:59.046456+00:00 [queued]>
+[2023-06-11T04:45:50.849+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T04:45:51.160+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): greet> on 2023-06-11 04:44:59.046456+00:00
+[2023-06-11T04:45:51.193+0000] {standard_task_runner.py:57} INFO - Started process 332 to run task
+[2023-06-11T04:45:51.214+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_api', 'greet', 'manual__2023-06-11T04:44:59.046456+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/dag_api.py', '--cfg-path', '/tmp/tmptkwcuds8']
+[2023-06-11T04:45:51.215+0000] {standard_task_runner.py:85} INFO - Job 93: Subtask greet
+[2023-06-11T04:45:51.447+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_api.greet manual__2023-06-11T04:44:59.046456+00:00 [running]> on host 4b1b5d40d165
+[2023-06-11T04:45:52.893+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='dag_api' AIRFLOW_CTX_TASK_ID='greet' AIRFLOW_CTX_EXECUTION_DATE='2023-06-11T04:44:59.046456+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-11T04:44:59.046456+00:00'
+[2023-06-11T04:45:52.923+0000] {logging_mixin.py:149} INFO - hellow world!!! my name is Raja and age is 20
+[2023-06-11T04:45:52.923+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-06-11T04:45:53.038+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=dag_api, task_id=greet, execution_date=20230611T044459, start_date=20230611T044550, end_date=20230611T044553
+[2023-06-11T04:45:53.150+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T04:45:53.233+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

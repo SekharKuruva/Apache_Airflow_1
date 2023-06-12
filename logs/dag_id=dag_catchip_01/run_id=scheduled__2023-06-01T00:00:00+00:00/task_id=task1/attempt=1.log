@@ -1,0 +1,36 @@
+[2023-06-11T05:20:52.039+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [queued]>
+[2023-06-11T05:20:52.315+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [queued]>
+[2023-06-11T05:20:52.316+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T05:20:52.762+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): task1> on 2023-06-01 00:00:00+00:00
+[2023-06-11T05:20:52.976+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_catchip_01', 'task1', 'scheduled__2023-06-01T00:00:00+00:00', '--job-id', '220', '--raw', '--subdir', 'DAGS_FOLDER/dag_catchup.py', '--cfg-path', '/tmp/tmp9p5qaz03']
+[2023-06-11T05:20:52.979+0000] {standard_task_runner.py:57} INFO - Started process 802 to run task
+[2023-06-11T05:20:52.985+0000] {standard_task_runner.py:85} INFO - Job 220: Subtask task1
+[2023-06-11T05:20:53.540+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [running]> on host 69e374580eab
+[2023-06-11T05:20:55.549+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='dag_catchip_01' AIRFLOW_CTX_TASK_ID='task1' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-01T00:00:00+00:00'
+[2023-06-11T05:20:55.576+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T05:20:55.606+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo Hai how are you']
+[2023-06-11T05:20:55.850+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T05:20:55.876+0000] {subprocess.py:93} INFO - Hai how are you
+[2023-06-11T05:20:55.877+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T05:20:56.242+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=dag_catchip_01, task_id=task1, execution_date=20230601T000000, start_date=20230611T052052, end_date=20230611T052056
+[2023-06-11T05:20:56.341+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T05:20:56.604+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-06-11T08:24:46.977+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [queued]>
+[2023-06-11T08:24:47.700+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [queued]>
+[2023-06-11T08:24:47.701+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T08:24:49.416+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): task1> on 2023-06-01 00:00:00+00:00
+[2023-06-11T08:24:49.797+0000] {standard_task_runner.py:57} INFO - Started process 1017 to run task
+[2023-06-11T08:24:50.174+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_catchip_01', 'task1', 'scheduled__2023-06-01T00:00:00+00:00', '--job-id', '314', '--raw', '--subdir', 'DAGS_FOLDER/dag_catchup.py', '--cfg-path', '/tmp/tmp9btgf9mk']
+[2023-06-11T08:24:50.272+0000] {standard_task_runner.py:85} INFO - Job 314: Subtask task1
+[2023-06-11T08:24:53.060+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_catchip_01.task1 scheduled__2023-06-01T00:00:00+00:00 [running]> on host 492037cdd057
+[2023-06-11T08:24:59.502+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='dag_catchip_01' AIRFLOW_CTX_TASK_ID='task1' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-01T00:00:00+00:00'
+[2023-06-11T08:24:59.537+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T08:24:59.538+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo Hai how are you']
+[2023-06-11T08:24:59.681+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T08:24:59.757+0000] {subprocess.py:93} INFO - Hai how are you
+[2023-06-11T08:24:59.771+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T08:25:01.117+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=dag_catchip_01, task_id=task1, execution_date=20230601T000000, start_date=20230611T082447, end_date=20230611T082501
+[2023-06-11T08:25:02.827+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T08:25:04.056+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

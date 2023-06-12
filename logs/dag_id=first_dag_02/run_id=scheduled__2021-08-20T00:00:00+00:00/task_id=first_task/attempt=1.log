@@ -1,0 +1,198 @@
+[2023-06-10T17:29:18.616+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-10T17:29:18.724+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-10T17:29:18.792+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-10T17:29:19.709+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-10T17:29:19.739+0000] {standard_task_runner.py:57} INFO - Started process 1063 to run task
+[2023-06-10T17:29:20.078+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '1853', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpx35dvj91']
+[2023-06-10T17:29:20.119+0000] {standard_task_runner.py:85} INFO - Job 1853: Subtask first_task
+[2023-06-10T17:29:22.838+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host e326d5f70fa9
+[2023-06-10T17:29:35.508+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-10T17:29:36.972+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-10T17:29:37.458+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-10T17:29:39.346+0000] {subprocess.py:86} INFO - Output:
+[2023-06-10T17:29:59.597+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-10T17:30:00.152+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-10T17:30:12.592+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230610T172918, end_date=20230610T173012
+[2023-06-10T17:30:13.897+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-10T17:30:13.916+0000] {taskinstance.py:2660} INFO - Skipping mini scheduling run due to exception: None
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2611, in schedule_downstream_tasks
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2870, in one
+    return self._iter().one()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2919, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1556, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3320, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3399, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3370, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2204, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-06-11T04:46:10.341+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T04:46:10.533+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T04:46:10.533+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T04:46:10.595+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-11T04:46:10.637+0000] {standard_task_runner.py:57} INFO - Started process 369 to run task
+[2023-06-11T04:46:10.677+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmp26dl2y79']
+[2023-06-11T04:46:10.706+0000] {standard_task_runner.py:85} INFO - Job 105: Subtask first_task
+[2023-06-11T04:46:11.070+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host 4b1b5d40d165
+[2023-06-11T04:46:11.970+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-11T04:46:12.004+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T04:46:12.022+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-11T04:46:12.088+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T04:46:12.106+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-11T04:46:12.107+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T04:46:12.386+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230611T044610, end_date=20230611T044612
+[2023-06-11T04:46:12.524+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T04:46:12.745+0000] {taskinstance.py:2651} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2023-06-11T05:16:22.635+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T05:16:22.790+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T05:16:22.790+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T05:16:23.320+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-11T05:16:23.588+0000] {standard_task_runner.py:57} INFO - Started process 365 to run task
+[2023-06-11T05:16:23.864+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmprsf0_8ss']
+[2023-06-11T05:16:23.865+0000] {standard_task_runner.py:85} INFO - Job 90: Subtask first_task
+[2023-06-11T05:16:24.862+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host 69e374580eab
+[2023-06-11T05:16:27.480+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-11T05:16:27.486+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T05:16:27.487+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-11T05:16:27.712+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T05:16:27.788+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-11T05:16:27.890+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T05:16:28.581+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230611T051622, end_date=20230611T051628
+[2023-06-11T05:16:29.471+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T05:16:29.735+0000] {taskinstance.py:2651} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2023-06-11T08:18:22.176+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T08:18:23.660+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T08:18:23.661+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T08:18:24.427+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-11T08:18:24.541+0000] {standard_task_runner.py:57} INFO - Started process 447 to run task
+[2023-06-11T08:18:24.742+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '153', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpgwmpwa25']
+[2023-06-11T08:18:24.808+0000] {standard_task_runner.py:85} INFO - Job 153: Subtask first_task
+[2023-06-11T08:18:26.000+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host 492037cdd057
+[2023-06-11T08:18:30.810+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-11T08:18:30.844+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T08:18:30.887+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-11T08:18:31.244+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T08:18:31.256+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-11T08:18:31.259+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T08:18:32.141+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230611T081822, end_date=20230611T081832
+[2023-06-11T08:18:33.119+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T08:18:34.539+0000] {taskinstance.py:2651} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2023-06-11T08:48:29.885+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T08:48:30.182+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T08:48:30.185+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T08:48:30.690+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-11T08:48:30.765+0000] {standard_task_runner.py:57} INFO - Started process 453 to run task
+[2023-06-11T08:48:30.832+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpzmzwh78x']
+[2023-06-11T08:48:30.848+0000] {standard_task_runner.py:85} INFO - Job 137: Subtask first_task
+[2023-06-11T08:48:31.317+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host 964e508aad03
+[2023-06-11T08:48:33.301+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-11T08:48:33.302+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T08:48:33.303+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-11T08:48:33.343+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T08:48:33.355+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-11T08:48:33.356+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T08:48:33.586+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230611T084829, end_date=20230611T084833
+[2023-06-11T08:48:33.747+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T08:48:33.992+0000] {taskinstance.py:2651} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2023-06-11T10:39:21.192+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T10:39:21.319+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [queued]>
+[2023-06-11T10:39:21.319+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T10:39:21.883+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): first_task> on 2021-08-20 00:00:00+00:00
+[2023-06-11T10:39:21.903+0000] {standard_task_runner.py:57} INFO - Started process 442 to run task
+[2023-06-11T10:39:21.915+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'first_task', 'scheduled__2021-08-20T00:00:00+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpjwxxrwki']
+[2023-06-11T10:39:21.917+0000] {standard_task_runner.py:85} INFO - Job 117: Subtask first_task
+[2023-06-11T10:39:22.740+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.first_task scheduled__2021-08-20T00:00:00+00:00 [running]> on host 7586ce0070ac
+[2023-06-11T10:39:26.794+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='first_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-20T00:00:00+00:00'
+[2023-06-11T10:39:26.823+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T10:39:26.870+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hello world, this is the first task!']
+[2023-06-11T10:39:27.069+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T10:39:27.079+0000] {subprocess.py:93} INFO - hello world, this is the first task!
+[2023-06-11T10:39:27.081+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T10:39:27.573+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=first_task, execution_date=20210820T000000, start_date=20230611T103921, end_date=20230611T103927
+[2023-06-11T10:39:28.171+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T10:39:28.322+0000] {taskinstance.py:2651} INFO - 2 downstream tasks scheduled from follow-on schedule check

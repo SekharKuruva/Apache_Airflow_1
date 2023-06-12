@@ -1,0 +1,8 @@
+[2023-06-11T05:27:00.230+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pythonoperator_11.third_task scheduled__2023-06-02T00:00:00+00:00 [queued]>
+[2023-06-11T05:27:01.676+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pythonoperator_11.third_task scheduled__2023-06-02T00:00:00+00:00 [queued]>
+[2023-06-11T05:27:01.806+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T05:27:04.307+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): third_task> on 2023-06-02 00:00:00+00:00
+[2023-06-11T05:27:05.633+0000] {standard_task_runner.py:57} INFO - Started process 1146 to run task
+[2023-06-11T05:27:06.122+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_pythonoperator_11', 'third_task', 'scheduled__2023-06-02T00:00:00+00:00', '--job-id', '337', '--raw', '--subdir', 'DAGS_FOLDER/python_operator_dag.py', '--cfg-path', '/tmp/tmp_bmp830s']
+[2023-06-11T05:27:06.340+0000] {standard_task_runner.py:85} INFO - Job 337: Subtask third_task
+[2023-06-11T05:27:09.595+0000] {task_command.py:410} INFO - Running <TaskInstance: dag_pythonoperator_11.third_task scheduled__2023-06-02T00:00:00+00:00 [running]> on host 69e374580eab

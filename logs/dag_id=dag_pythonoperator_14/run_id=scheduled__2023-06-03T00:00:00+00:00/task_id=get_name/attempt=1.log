@@ -1,0 +1,7 @@
+[2023-06-11T06:00:19.550+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_pythonoperator_14.get_name scheduled__2023-06-03T00:00:00+00:00 [queued]>
+[2023-06-11T06:00:22.568+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_pythonoperator_14.get_name scheduled__2023-06-03T00:00:00+00:00 [queued]>
+[2023-06-11T06:00:22.841+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T06:00:28.769+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): get_name> on 2023-06-03 00:00:00+00:00
+[2023-06-11T06:00:29.165+0000] {standard_task_runner.py:57} INFO - Started process 782 to run task
+[2023-06-11T06:00:31.875+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_pythonoperator_14', 'get_name', 'scheduled__2023-06-03T00:00:00+00:00', '--job-id', '527', '--raw', '--subdir', 'DAGS_FOLDER/python_operator_dag.py', '--cfg-path', '/tmp/tmp1a6qairo']
+[2023-06-11T06:00:32.026+0000] {standard_task_runner.py:85} INFO - Job 527: Subtask get_name

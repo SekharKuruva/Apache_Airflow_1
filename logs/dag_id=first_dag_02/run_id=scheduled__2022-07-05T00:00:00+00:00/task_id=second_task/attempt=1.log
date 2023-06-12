@@ -1,0 +1,28 @@
+[2023-06-11T09:49:21.732+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.second_task scheduled__2022-07-05T00:00:00+00:00 [queued]>
+[2023-06-11T09:49:21.840+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.second_task scheduled__2022-07-05T00:00:00+00:00 [queued]>
+[2023-06-11T09:49:21.841+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T09:49:24.794+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): second_task> on 2022-07-05 00:00:00+00:00
+[2023-06-11T09:49:26.267+0000] {standard_task_runner.py:57} INFO - Started process 5337 to run task
+[2023-06-11T09:49:27.670+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'second_task', 'scheduled__2022-07-05T00:00:00+00:00', '--job-id', '1636', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpfpvlztcj']
+[2023-06-11T09:49:27.725+0000] {standard_task_runner.py:85} INFO - Job 1636: Subtask second_task
+[2023-06-11T09:49:44.180+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1636 for task second_task ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 5337)
+[2023-06-11T15:35:02.071+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: first_dag_02.second_task scheduled__2022-07-05T00:00:00+00:00 [queued]>
+[2023-06-11T15:35:02.189+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: first_dag_02.second_task scheduled__2022-07-05T00:00:00+00:00 [queued]>
+[2023-06-11T15:35:02.189+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 6
+[2023-06-11T15:35:02.394+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): second_task> on 2022-07-05 00:00:00+00:00
+[2023-06-11T15:35:02.488+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'first_dag_02', 'second_task', 'scheduled__2022-07-05T00:00:00+00:00', '--job-id', '1654', '--raw', '--subdir', 'DAGS_FOLDER/First_dag.py', '--cfg-path', '/tmp/tmpu08zyn_x']
+[2023-06-11T15:35:02.489+0000] {standard_task_runner.py:85} INFO - Job 1654: Subtask second_task
+[2023-06-11T15:35:02.478+0000] {standard_task_runner.py:57} INFO - Started process 1847 to run task
+[2023-06-11T15:35:03.121+0000] {task_command.py:410} INFO - Running <TaskInstance: first_dag_02.second_task scheduled__2022-07-05T00:00:00+00:00 [running]> on host 7586ce0070ac
+[2023-06-11T15:35:04.944+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='first_dag_02' AIRFLOW_CTX_TASK_ID='second_task' AIRFLOW_CTX_EXECUTION_DATE='2022-07-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2022-07-05T00:00:00+00:00'
+[2023-06-11T15:35:04.946+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-11T15:35:04.947+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo hey, I am task2 and will be running after task1!']
+[2023-06-11T15:35:05.104+0000] {subprocess.py:86} INFO - Output:
+[2023-06-11T15:35:05.109+0000] {subprocess.py:93} INFO - hey, I am task2 and will be running after task1!
+[2023-06-11T15:35:05.110+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-11T15:35:05.666+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=first_dag_02, task_id=second_task, execution_date=20220705T000000, start_date=20230611T153502, end_date=20230611T153505
+[2023-06-11T15:35:06.190+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-06-11T15:35:06.515+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

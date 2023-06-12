@@ -1,0 +1,28 @@
+[2023-06-12T13:40:05.933+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_download_05.Download_s3 manual__2023-06-12T13:34:48.812419+00:00 [queued]>
+[2023-06-12T13:40:05.972+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_download_05.Download_s3 manual__2023-06-12T13:34:48.812419+00:00 [queued]>
+[2023-06-12T13:40:05.972+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 6
+[2023-06-12T13:40:06.024+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): Download_s3> on 2023-06-12 13:34:48.812419+00:00
+[2023-06-12T13:40:06.034+0000] {standard_task_runner.py:57} INFO - Started process 4333 to run task
+[2023-06-12T13:40:06.050+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 's3_download_05', 'Download_s3', 'manual__2023-06-12T13:34:48.812419+00:00', '--job-id', '338', '--raw', '--subdir', 'DAGS_FOLDER/download_s3_dag.py', '--cfg-path', '/tmp/tmp3arrqd1u']
+[2023-06-12T13:40:06.051+0000] {standard_task_runner.py:85} INFO - Job 338: Subtask Download_s3
+[2023-06-12T13:40:06.221+0000] {task_command.py:410} INFO - Running <TaskInstance: s3_download_05.Download_s3 manual__2023-06-12T13:34:48.812419+00:00 [running]> on host 03cd9a7904e9
+[2023-06-12T13:40:06.609+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Raja' AIRFLOW_CTX_DAG_ID='s3_download_05' AIRFLOW_CTX_TASK_ID='Download_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-06-12T13:34:48.812419+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-12T13:34:48.812419+00:00'
+[2023-06-12T13:40:06.612+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/download_s3_dag.py", line 22, in download_from_s3
+    hook.download_file(local_filename=local_filename,bucket_name=bucket_name,key=key)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 96, in wrapper
+    bound_args = function_signature.bind(*args, **kwargs)
+  File "/usr/local/lib/python3.7/inspect.py", line 3015, in bind
+    return args[0]._bind(args[1:], kwargs)
+  File "/usr/local/lib/python3.7/inspect.py", line 3006, in _bind
+    arg=next(iter(kwargs))))
+TypeError: got an unexpected keyword argument 'local_filename'
+[2023-06-12T13:40:06.643+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=s3_download_05, task_id=Download_s3, execution_date=20230612T133448, start_date=20230612T134005, end_date=20230612T134006
+[2023-06-12T13:40:06.680+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 338 for task Download_s3 (got an unexpected keyword argument 'local_filename'; 4333)
+[2023-06-12T13:40:06.717+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-12T13:40:06.798+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
