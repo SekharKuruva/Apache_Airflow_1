@@ -16,17 +16,14 @@ def start():
     print("Task is started!!")
 
 def download_s3_file():
-    s3_client = boto3.client('s3',region_name='us-east-2',
-    aws_access_key_id='AKIASICZTMINOIDBYJDG',
-    aws_secret_access_key='NzNS/FCG6COLt0i48jHJZ9zvW660v8zSqLMPAoj0'
-)
-
-
-    key = 'main.txt'
+    key = 'Example.txt'
     bucket_name = 's3firstexample'
-    local_filepath = '/opt/airflow/dags/main.txt'
+    filename = '/opt/airflow/dags/Example.txt'
+
+    s3_hook = S3Hook('S3_conn')
+    s3_hook.download_file(bucket_name, key,filename)
+    print('File uploaded to S3.')
     
-    s3_client.download_file(bucket_name, key, local_filepath)
 
 def end():
     print("Task is end!!!")
